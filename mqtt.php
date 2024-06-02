@@ -45,11 +45,11 @@ $mqtt->subscribe('php/mqtt', function ($topic, $message) {
 
 $payload = array(
     'from' => 'php-mqtt client',
-    'message' => 'Hello MQTT server',
+    'message' => 'Hello MQTT !',
     'date' => date('Y-m-d H:i:s')
   );
 
-$mqtt->publish('php/mqtt', json_encode("Hello MQTT server again hahaha"), 0);
+$mqtt->publish('php/mqtt', json_encode($payload), 0);
 
 $mqtt->loop(true);
   
