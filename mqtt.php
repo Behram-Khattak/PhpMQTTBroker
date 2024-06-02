@@ -39,7 +39,7 @@ $mqtt = new MqttClient($server, $port, $clientId, MqttClient::MQTT_3_1_1);
 $mqtt->connect($connectionSettings, $clean_session);
 
 
-$mqtt->subscribe('RideZoid', function ($topic, $message) {
+$mqtt->subscribe('php/mqtt', function ($topic, $message) {
     printf("Received message on topic [%s]: %s\n", $topic, $message);
 }, 0);
 
@@ -49,7 +49,7 @@ $payload = array(
     'date' => date('Y-m-d H:i:s')
   );
 
-$mqtt->publish('RideZoid', json_encode("Hello MQTT server again hahaha"), 0);
+$mqtt->publish('php/mqtt', json_encode("Hello MQTT server again hahaha"), 0);
 
 $mqtt->loop(true);
   
